@@ -1,0 +1,33 @@
+//control layer actions by markers
+//adapted from Dan Ebberts @ www.motionscript.com
+
+//apply to Time Remapping
+
+var action = comp(name).layer("Control");
+var d = framesToTime(1); //tira um frame para parar
+var n = 0;
+
+if (marker.numKeys > 0){
+  var n = marker.nearestKey(time).index; //nro do marker
+  if (marker.key(n).time > time){ //se o tempo do marker for maior que o tempo actual
+    n--; //tira um ao index do marker
+  }
+}
+
+if (n == 0){
+  0
+} else {
+  var m = marker.key(n);
+  var myComment = m.comment;
+  var t = time - m.time;
+  try {
+    var actMarker = action.marker.key(myComment);
+    if (action.marker.numKeys > actMarker.index){ //se não for o último marker
+      var tMax = action.marker.key(actMarker.index + 1).time - actMarker.time - d; //define o tempo máximo "d" tira um frame
+    } else {
+      var tMax = action.outPoint - actMarker.time;
+    }
+    t = Math.min(t, tMax);
+    actMarker.time + t;
+  } catch (err) {0}
+}
