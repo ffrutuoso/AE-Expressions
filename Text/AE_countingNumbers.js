@@ -1,18 +1,13 @@
 // counts numbers using an animator from 0% - 100%
-
 //add to sourceText
-
 
 numDecimals = 0;
 commas = false;
-sign = true;
+sign = 0;
 symbol ="%";
-beginNum = -100;
-endNum = 100;
 before = 1;
-t = effect("Animator")("Slider");
+s = effect("Slider Control")("Slider").value.toFixed(numDecimals);
 
-s = linear (t, 0, 100, beginNum, endNum).toFixed(numDecimals);
 
 prefix = "";
 sufix ="";
