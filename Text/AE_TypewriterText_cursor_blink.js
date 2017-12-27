@@ -1,9 +1,20 @@
 // apply on opacity
 
-L = effect("Layer Control")("Layer");
-On = effect("Cursor")("Checkbox");
-spd = L.effect("Anim").slider.velocity;
-PT = time - thisLayer.inPoint;
-F = Math.round(PT % 1);
+var targetLayer = effect("Layer Control")("Layer");
+var On = effect("Checkbox Control")("Checkbox");
+var spd = L.effect("Slider Control").slider.velocity;
+var startTime = time - thisLayer.inPoint;
+var pulse = Math.round(startTime % 1);
+var opacityVal = 100;
 
-if (F == 0 && On == 1) 100 else if (spd !=0 && On== 1) 100 else 0
+if (spd != 0 && On == 1) {
+  opacityVal = 100;
+} else {
+  if (pulse == 0 && On == 1) {
+    opacityVal = 100;
+  } else {
+    opacityVal = 0;
+  }
+}
+
+opacityVal

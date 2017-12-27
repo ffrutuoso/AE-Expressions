@@ -1,5 +1,6 @@
 var arr = [];
 var numDigits = 10;
+
 seedRandom(3, timeless = true);
 
 for (var i = 0; i < numDigits; i++) {
@@ -8,4 +9,5 @@ for (var i = 0; i < numDigits; i++) {
 }
 
 arr = arr.join("");
-"2" + arr
+
+arr
