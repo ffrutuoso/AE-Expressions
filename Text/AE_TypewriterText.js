@@ -1,9 +1,9 @@
 //apply on SourceText
 
 //adding keyframe controls
-var On = effect("Blink")("Checkbox"); //On/Off cursor
-var anim = thisLayer("Effects")("Anim")("Slider"); //animator from 0% to 100%
-var spd = effect("Anim")("Slider").speed; //detect animator is in progress
+var On = effect("Checkbox Control")("Checkbox"); //On/Off cursor
+var anim = thisLayer("Effects")("Slider Control")("Slider"); //animator from 0% to 100%
+var spd = effect("Slider Control")("Slider").speed; //detect animator is in progress
 
 var cursor = "|"; //character for the cursor
 var sign = ""; //define sign to add after text

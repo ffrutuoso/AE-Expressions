@@ -21,13 +21,19 @@ for (var i = thisComp.numLayers; i >= 1; i--) {
 
   // if any Layer name matches searchString
   if (nameSearch >= 0) {
-    var pointIndex = Number(thisComp.layer(i).name.substr(searchString.length)); // get point index from name
+
+    // get point index from name
+    var pointIndex = Number(thisComp.layer(i).name.substr(searchString.length));
+
+    // if a null name exceeds the point count, add a new point
     if (pointIndex >= pointArr.length) {
       pointArr.push([0, 0]);
       inTangArr.push([0, 0]);
       outTangArr.push([0, 0]);
     }
-    pointArr[pointIndex] = fromCompToSurface(thisComp.layer(i).toComp(thisComp.layer(i).anchorPoint)); // set position
+
+    // set point position
+    pointArr[pointIndex] = fromCompToSurface(thisComp.layer(i).toComp(thisComp.layer(i).anchorPoint));
 
   }
 }

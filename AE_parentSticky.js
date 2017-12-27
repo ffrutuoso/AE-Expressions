@@ -1,16 +1,11 @@
-// UNDER CONSTRUCTION
+// WIP
 
-p = thisComp.layer("01 Landing").transform.position[1];
+var scrollPos = effect("Layer Control")("Layer").position[1];
+var x = value[0];
+var y = scrollPos - 320 + 24;
 
-thres = 110;
-
-x = 0;
-y = value[1];
-
-if (p + y > thres) {
-  y = y + p
-} else {
-  y = thres
+if (y <= -94 + 24) {
+  y = -94 + 24;
 }
 
 [x, y]
