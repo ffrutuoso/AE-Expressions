@@ -6,7 +6,7 @@ var y = value[1];
 
 var targetLayer = effect("Layer Control")("Layer");  // Get text layer
 
-var rectW = targetLayer.sourceRectAtTime(time - targetLayer.inPoint).width;  // Get width of text area
+var rectW = targetLayer.sourceRectAtTime(time - targetLayer.startTime).width;  // Get width of text area
 
 // If text area is less than 1px wide, move 1px right
 if (rectW < 1) {
