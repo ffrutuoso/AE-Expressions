@@ -6,16 +6,16 @@ var y = value[1];
 
 var targetLayer = effect("Layer Control")("Layer");  // Get text layer
 
-var rect = targetLayer.sourceRectAtTime(time - targetLayer.inPoint).width;  // Get width of text area
+var rectW = targetLayer.sourceRectAtTime(time - targetLayer.inPoint).width;  // Get width of text area
 
 // If text area is less than 1px wide, move 1px right
-if (rect < 1) {
+if (rectW < 1) {
   offset = 0;
 } else {
   offset = 1;
 }
 
-var roundRect = Math.round(rect) + offset;  // Rounds to the nearest pixel
+var roundRectW = Math.round(rectW) + offset;  // Rounds to the nearest pixel
 
 // Return value
-[x + roundRect, y]
+[x + roundRectW, y]
