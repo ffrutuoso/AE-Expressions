@@ -2,7 +2,6 @@
 
 //apply on Scale
 
-
 s = [];
 
 parentScale = parent.transform.scale.value;
