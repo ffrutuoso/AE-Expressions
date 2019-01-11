@@ -6,4 +6,8 @@ var spd = targetLayer.effect("Slider Control").slider.velocity; // Gets text ani
 var inTime = time - thisLayer.startTime; // Calculates layer start time
 var pulse = Math.round(inTime % 1); // Blinks every second
 
-if (pulse == 0 ) value else if (spd !=0) value else 0
+if (pulse == 0) {
+    value
+} else if (spd != 0) {
+    value
+} else 0

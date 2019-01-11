@@ -12,7 +12,7 @@
     app.beginUndoGroup("Add Control Layer");
 
     var thisNull = thisComp.layers.addNull();
-    thisNull.name = "Control";
+    thisNull.name = "Time Control";
     thisNull.enabled = false;
     thisNull.property("anchorPoint").setValue([50, 50, 0]);
 
@@ -20,5 +20,4 @@
   }
 
   addNullLayer();
-
 }

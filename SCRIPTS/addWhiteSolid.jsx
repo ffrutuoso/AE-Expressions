@@ -10,7 +10,7 @@
 
     app.beginUndoGroup("Add White BG");
 
-    var solidColor = [1,1,1];
+    var solidColor = [1, 1, 1];
     var solidName = "BG";
     var solidWidth = thisComp.width;
     var solidHeight = thisComp.height;
@@ -21,11 +21,9 @@
     thisSolid.moveToEnd();
     thisSolid.guideLayer = true;
     thisSolid.locked = true;
-    
-    app.endUndoGroup();
 
+    app.endUndoGroup();
   }
 
   addNullLayer();
-
 }

@@ -1,24 +1,23 @@
-//SwapPosition.jsx
-//copyright 2012 Dan Fredley
-// Swaps the position of two selected layers in After Effects.
-// v1.0 - original release 27 July 2012
-/** Set the current comp to the var thisComp */
-
-{
-  function addNullLayer() {
-    var thisComp = app.project.activeItem;
+﻿{
+  function roundProps() {
     var proj = app.project;
+    var thisComp = proj.activeItem;
+    var selLayers = thisComp.selectedLayers;
 
-    app.beginUndoGroup("Add Control Layer");
+    for (var currentLayer = 0; currentLayer < selLayers.length; currentLayer++) {
+      var activeLayer = selLayers[currentLayer];
+      var roundedValue = [];
+      var layerPos = activeLayer.transform.position;
 
-    var thisNull = thisComp.layers.addNull();
-    thisNull.name = "Control";
-    thisNull.enabled = false;
-    thisNull.property("anchorPoint").setValue([50, 50, 0]);
-
-    app.endUndoGroup();
+      for (var index = 0; index < layerPos.value.length; index++) {
+        var changedValue = Math.floor(layerPos.value[index] / 100) * 100 + 50;
+        roundedValue.push(changedValue);
+      }
+      layerPos.setValue(roundedValue);
+      layerPos.expression = "";
+    }
   }
-
-  addNullLayer();
-
+  app.beginUndoGroup("Round Position");
+  roundProps();
+  app.endUndoGroup();
 }
